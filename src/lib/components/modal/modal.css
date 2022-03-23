@@ -1,0 +1,90 @@
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1040;
+}
+
+.modalWrapper {
+  height: 100%;
+  left: 0;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 0.625rem;
+  margin: 1.75rem auto;
+  max-width: 31.25rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.modalCloseButton {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  opacity: 0.5;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+}
+
+.modalCloseButton:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.modalSection {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+
+.modalButton,
+.buttonDefault {
+  background: #e66e5e;
+  border: none;
+  border-radius: 0.3125rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.3rem 1rem;
+  transition: 0.3s;
+  margin-top: 2rem;
+}
+
+.modalButton:hover,
+.buttonDefault:hover {
+  background: #fff;
+  color: #e66e5e;
+}
+
+.buttonDefault {
+  margin-left: 1rem;
+}

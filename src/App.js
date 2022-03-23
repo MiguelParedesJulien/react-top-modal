@@ -1,16 +1,20 @@
 import React from "react";
-import Modal from "components/modal/modal";
-import useModal from "utils/useModal";
+import Modal from "lib/components/modal/modal";
+import useModal from "lib/utils/useModal";
 import "App.css";
 
 const App = () => {
-  const { isShowing: showClassicModal, toggle: toggleClassicModal } = useModal();
+  const { isShowing: showModal, toggle: toggleModal } = useModal();
   const { isShowing: showModalWithCloseEsc, toggle: toggleModalWithCloseEsc } = useModal();
   const { isShowing: showModalWithCloseOverlay, toggle: toggleModalWithCloseOverlay } = useModal();
   const { isShowing: showModalWithFooterButton, toggle: toggleModalWithFooterButton } = useModal();
   const { isShowing: showModalWithSpinner, toggle: toggleModalSpinner, isLoading: showSpinner, toggleSpinner } = useModal();
   const { isShowing: showModalWithClassName, toggle: toggleModalWithClassName } = useModal();
 
+  /**
+   * Function allowing to display the loader during the indicated time
+   * @return {void}
+   */
   const spinnerTimer = () => {
     toggleSpinner();
 
@@ -22,10 +26,10 @@ const App = () => {
   return (
     <>
       <main className="salut">
-        <button type="submit" className="buttonDefault" onClick={toggleClassicModal}>
+        <button type="submit" className="buttonDefault" onClick={toggleModal}>
           Modal (classic Modal)
         </button>
-        <Modal isShowing={showClassicModal} hide={toggleClassicModal} addCloseIcon={true}>
+        <Modal isShowing={showModal} hide={toggleModal} addCloseIcon={true}>
           <h1>Hello, Modal 1 </h1>
           <p>bla bla bla 1</p>
         </Modal>
@@ -64,7 +68,7 @@ const App = () => {
           Modal (with customClassName)
         </button>
         <Modal isShowing={showModalWithClassName} hide={toggleModalWithClassName} addCloseIcon={false} addCloseOverlay={true} addFooterButton={true} customClassName="custom">
-          <h1>Hello, Modal 5 </h1>
+          <h1>Hello, Modal 6 </h1>
           <p>bla bla bla 6</p>
         </Modal>
       </main>
