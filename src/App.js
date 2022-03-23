@@ -3,11 +3,21 @@ import Modal from "components/modal/modal";
 import useModal from "utils/useModal";
 import "App.css";
 
-function App() {
+const App = () => {
   const { isShowing: showClassicModal, toggle: toggleClassicModal } = useModal();
-  const { isShowing: showModalCloseEsc, toggle: toggleModalCloseEsc } = useModal();
-  const { isShowing: showModalCloseOverlay, toggle: toggleModalCloseOverlay } = useModal();
-  const { isShowing: showModalButtonFooter, toggle: toggleModalButtonFooter } = useModal();
+  const { isShowing: showModalWithCloseEsc, toggle: toggleModalWithCloseEsc } = useModal();
+  const { isShowing: showModalWithCloseOverlay, toggle: toggleModalWithCloseOverlay } = useModal();
+  const { isShowing: showModalWithFooterButton, toggle: toggleModalWithFooterButton } = useModal();
+  const { isShowing: showModalWithSpinner, toggle: toggleModalSpinner, isLoading: showSpinner, toggleSpinner } = useModal();
+  const { isShowing: showModalWithClassName, toggle: toggleModalWithClassName } = useModal();
+
+  const spinnerTimer = () => {
+    toggleSpinner();
+
+    setTimeout(() => {
+      toggleModalSpinner();
+    }, 1000);
+  };
 
   return (
     <>
@@ -20,32 +30,46 @@ function App() {
           <p>bla bla bla 1</p>
         </Modal>
 
-        <button type="submit" className="buttonDefault" onClick={toggleModalCloseEsc}>
+        <button type="submit" className="buttonDefault" onClick={toggleModalWithCloseEsc}>
           Modal (with closeEscape)
         </button>
-        <Modal isShowing={showModalCloseEsc} hide={toggleModalCloseEsc} addCloseIcon={true} addCloseEscape={true}>
+        <Modal isShowing={showModalWithCloseEsc} hide={toggleModalWithCloseEsc} addCloseIcon={true} addCloseEscape={true}>
           <h1>Hello, Modal 2 </h1>
           <p>bla bla bla 2</p>
         </Modal>
 
-        <button type="submit" className="buttonDefault" onClick={toggleModalCloseOverlay}>
+        <button type="submit" className="buttonDefault" onClick={toggleModalWithCloseOverlay}>
           Modal (with closeOverlay)
         </button>
-        <Modal isShowing={showModalCloseOverlay} hide={toggleModalCloseOverlay} addCloseIcon={true} addCloseOverlay={true}>
+        <Modal isShowing={showModalWithCloseOverlay} hide={toggleModalWithCloseOverlay} addCloseIcon={true} addCloseOverlay={true}>
           <h1>Hello, Modal 3 </h1>
           <p>bla bla bla 3</p>
         </Modal>
 
-        <button type="submit" className="buttonDefault" onClick={toggleModalButtonFooter}>
-          Modal (with buttonFooter)
+        <button type="submit" className="buttonDefault" onClick={toggleModalWithFooterButton}>
+          Modal (with footerButton)
         </button>
-        <Modal isShowing={showModalButtonFooter} hide={toggleModalButtonFooter} addCloseIcon={false} addCloseOverlay={true} addButtonFooter={true}>
+        <Modal isShowing={showModalWithFooterButton} hide={toggleModalWithFooterButton} addCloseIcon={false} addCloseOverlay={true} addFooterButton={true}>
           <h1>Hello, Modal 4 </h1>
           <p>bla bla bla 4</p>
+        </Modal>
+        <button type="submit" className="buttonDefault" onClick={spinnerTimer}>
+          Modal (with loader after 1s)
+        </button>
+        <Modal isShowing={showModalWithSpinner} hide={toggleModalSpinner} spinner={showSpinner} addCloseIcon={false} addCloseOverlay={true} addFooterButton={true}>
+          <h1>Hello, Modal 5 </h1>
+          <p>bla bla bla 5 </p>
+        </Modal>
+        <button type="submit" className="buttonDefault" onClick={toggleModalWithClassName}>
+          Modal (with customClassName)
+        </button>
+        <Modal isShowing={showModalWithClassName} hide={toggleModalWithClassName} addCloseIcon={false} addCloseOverlay={true} addFooterButton={true} customClassName="custom">
+          <h1>Hello, Modal 5 </h1>
+          <p>bla bla bla 6</p>
         </Modal>
       </main>
     </>
   );
-}
+};
 
 export default App;
