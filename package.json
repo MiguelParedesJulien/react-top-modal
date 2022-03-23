@@ -2,6 +2,8 @@
   "name": "react-top-modal",
   "author": "Miguel Paredes Julien <julien.miguelparedes@gmail.com>",
   "version": "0.1.0",
+  "description": "React component to easily create customizable modals",
+  "license": "MIT",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,6 +39,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "build-front-end": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

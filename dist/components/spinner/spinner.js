@@ -3,82 +3,45 @@
 Object.defineProperty(exports, "__esModule", {
   value: true,
 });
+exports.default = void 0;
 
-var _jsx = (function () {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === "function" && Symbol.for && Symbol.for("react.element")) || 0xeac7;
-  return function createRawReactElement(type, props, key, children) {
-    var defaultProps = type && type.defaultProps;
-    var childrenLength = arguments.length - 3;
-    if (!props && childrenLength !== 0) {
-      props = {};
-    }
-    if (props && defaultProps) {
-      for (var propName in defaultProps) {
-        if (props[propName] === void 0) {
-          props[propName] = defaultProps[propName];
-        }
-      }
-    } else if (!props) {
-      props = defaultProps || {};
-    }
-    if (childrenLength === 1) {
-      props.children = children;
-    } else if (childrenLength > 1) {
-      var childArray = Array(childrenLength);
-      for (var i = 0; i < childrenLength; i++) {
-        childArray[i] = arguments[i + 3];
-      }
-      props.children = childArray;
-    }
-    return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key === undefined ? null : "" + key, ref: null, props: props, _owner: null };
-  };
-})();
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-require("lib/components/Spinner/Spinner.css");
+var _react = _interopRequireDefault(require("react"));
 
-var _propTypes = require("prop-types");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
+require("./Spinner.css");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var Spinner = function Spinner(props) {
-  return _jsx(
+const Spinner = (props) => {
+  return /*#__PURE__*/ _react.default.createElement(
     "div",
     {
-      className: "modalOverlay " + (props.customClassName ? "modalOverlay-" + props.customClassName : ""),
+      className: "modalOverlay ".concat(props.customClassName ? "modalOverlay-" + props.customClassName : ""),
     },
-    void 0,
-    _jsx(
+    /*#__PURE__*/ _react.default.createElement(
       "aside",
       {
-        className: "modalWrapper " + (props.customClassName ? "modalWrapper-" + props.customClassName : ""),
+        className: "modalWrapper ".concat(props.customClassName ? "modalWrapper-" + props.customClassName : ""),
         "aria-modal": true,
         "aria-hidden": true,
         tabIndex: -1,
         role: "dialog",
       },
-      void 0,
-      _jsx(
+      /*#__PURE__*/ _react.default.createElement(
         "section",
         {
-          className: "modal " + (props.customClassName ? "modal-" + props.customClassName : ""),
+          className: "modal ".concat(props.customClassName ? "modal-" + props.customClassName : ""),
         },
-        void 0,
-        _jsx(
+        /*#__PURE__*/ _react.default.createElement(
           "article",
           {
-            className: "modalSection " + (props.customClassName ? "modalBody-" + props.customClassName : ""),
+            className: "modalSection ".concat(props.customClassName ? "modalBody-" + props.customClassName : ""),
           },
-          void 0,
-          _jsx("div", {
-            className: "spinner " + (props.customClassName ? "loader-" + props.customClassName : ""),
+          /*#__PURE__*/ _react.default.createElement("div", {
+            className: "spinner ".concat(props.customClassName ? "loader-" + props.customClassName : ""),
           })
         )
       )
@@ -87,7 +50,7 @@ var Spinner = function Spinner(props) {
 };
 
 Spinner.propTypes = {
-  customClassName: _propTypes2.default.string,
+  customClassName: _propTypes.default.string,
 };
-
-exports.default = Spinner;
+var _default = Spinner;
+exports.default = _default;

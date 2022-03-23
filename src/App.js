@@ -4,12 +4,7 @@ import useModal from "lib/utils/useModal";
 import "App.css";
 
 const App = () => {
-  const { isShowing: showModal, toggle: toggleModal } = useModal();
-  const { isShowing: showModalWithCloseEsc, toggle: toggleModalWithCloseEsc } = useModal();
-  const { isShowing: showModalWithCloseOverlay, toggle: toggleModalWithCloseOverlay } = useModal();
-  const { isShowing: showModalWithFooterButton, toggle: toggleModalWithFooterButton } = useModal();
-  const { isShowing: showModalWithSpinner, toggle: toggleModalSpinner, isLoading: showSpinner, toggleSpinner } = useModal();
-  const { isShowing: showModalWithClassName, toggle: toggleModalWithClassName } = useModal();
+  const { showModal, activeModal, handleOpenModal, handleCloseModal, isLoading, toggleSpinner } = useModal();
 
   /**
    * Function allowing to display the loader during the indicated time
@@ -19,57 +14,53 @@ const App = () => {
     toggleSpinner();
 
     setTimeout(() => {
-      toggleModalSpinner();
+      handleOpenModal("spinner");
     }, 1000);
   };
 
   return (
     <>
       <main className="salut">
-        <button type="submit" className="buttonDefault" onClick={toggleModal}>
+        <button type="button" className="buttonDefault" onClick={() => handleOpenModal("classic")}>
           Modal (classic Modal)
         </button>
-        <Modal isShowing={showModal} hide={toggleModal} addCloseIcon={true}>
-          <h1>Hello, Modal 1 </h1>
-          <p>bla bla bla 1</p>
+        <Modal isOpen={showModal && activeModal === "classic"} close={handleCloseModal} addCloseIcon={true}>
+          <h2>classic</h2>
         </Modal>
 
-        <button type="submit" className="buttonDefault" onClick={toggleModalWithCloseEsc}>
+        <button type="button" className="buttonDefault" onClick={() => handleOpenModal("closeEscape")}>
           Modal (with closeEscape)
         </button>
-        <Modal isShowing={showModalWithCloseEsc} hide={toggleModalWithCloseEsc} addCloseIcon={true} addCloseEscape={true}>
-          <h1>Hello, Modal 2 </h1>
-          <p>bla bla bla 2</p>
+        <Modal isOpen={showModal && activeModal === "closeEscape"} close={handleCloseModal} addCloseIcon={true} addCloseEscape={true}>
+          <h2>closeEscape</h2>
         </Modal>
 
-        <button type="submit" className="buttonDefault" onClick={toggleModalWithCloseOverlay}>
+        <button type="button" className="buttonDefault" onClick={() => handleOpenModal("closeOverlay")}>
           Modal (with closeOverlay)
         </button>
-        <Modal isShowing={showModalWithCloseOverlay} hide={toggleModalWithCloseOverlay} addCloseIcon={true} addCloseOverlay={true}>
-          <h1>Hello, Modal 3 </h1>
-          <p>bla bla bla 3</p>
+        <Modal isOpen={showModal && activeModal === "closeOverlay"} close={handleCloseModal} addCloseIcon={true} addCloseOverlay={true}>
+          <h2>closeOverlay</h2>
         </Modal>
 
-        <button type="submit" className="buttonDefault" onClick={toggleModalWithFooterButton}>
+        <button type="button" className="buttonDefault" onClick={() => handleOpenModal("footerButton")}>
           Modal (with footerButton)
         </button>
-        <Modal isShowing={showModalWithFooterButton} hide={toggleModalWithFooterButton} addCloseIcon={false} addCloseOverlay={true} addFooterButton={true}>
-          <h1>Hello, Modal 4 </h1>
-          <p>bla bla bla 4</p>
+        <Modal isOpen={showModal && activeModal === "footerButton"} close={handleCloseModal} addFooterButton={true} addCloseIcon={false}>
+          <h2>footerButton</h2>
         </Modal>
-        <button type="submit" className="buttonDefault" onClick={spinnerTimer}>
-          Modal (with loader after 1s)
-        </button>
-        <Modal isShowing={showModalWithSpinner} hide={toggleModalSpinner} spinner={showSpinner} addCloseIcon={false} addCloseOverlay={true} addFooterButton={true}>
-          <h1>Hello, Modal 5 </h1>
-          <p>bla bla bla 5 </p>
-        </Modal>
-        <button type="submit" className="buttonDefault" onClick={toggleModalWithClassName}>
+
+        <button type="button" className="buttonDefault" onClick={() => handleOpenModal("customClassName")}>
+          {" "}
           Modal (with customClassName)
         </button>
-        <Modal isShowing={showModalWithClassName} hide={toggleModalWithClassName} addCloseIcon={false} addCloseOverlay={true} addFooterButton={true} customClassName="custom">
-          <h1>Hello, Modal 6 </h1>
-          <p>bla bla bla 6</p>
+        <Modal isOpen={showModal && activeModal === "customClassName"} close={handleCloseModal} addCloseIcon={true} customClassName="custom">
+          <h2>customClassName</h2>
+        </Modal>
+        <button type="button" className="buttonDefault" onClick={spinnerTimer}>
+          Modal (with spinner 1s)
+        </button>
+        <Modal isOpen={showModal && activeModal === "spinner"} close={handleCloseModal} addCloseIcon={true} spinner={isLoading}>
+          <h2>spinner</h2>
         </Modal>
       </main>
     </>
