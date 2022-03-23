@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Modal from "components/modal/modal";
+import useModal from "utils/useModal";
+import "App.css";
 
 function App() {
+  const { isShowing: show1, toggle: toggle1 } = useModal();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <main className="salut">
+        <button type="submit" className="buttonDefault" onClick={toggle1}>
+          Modal (with header)
+        </button>
+        <Modal isShowing={show1} hide={toggle1} addCloseEscape={true}>
+          <h1>Hello, je suis un titre </h1>
+          <p>bla bla bla</p>
+        </Modal>
+      </main>
+    </>
   );
 }
 
