@@ -1,4 +1,3 @@
-import React from "react";
 import Modal from "lib/components/modal/modal";
 import useModal from "lib/utils/useModal";
 import "App.css";

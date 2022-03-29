@@ -1,1 +1,1 @@
-export declare module "modal-top";
+declare module "modal-top";

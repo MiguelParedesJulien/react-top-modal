@@ -5,7 +5,7 @@
   "description": "React component to easily create customizable modals",
   "license": "MIT",
   "private": false,
-  "main": "dist/index",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
     "dist",
@@ -65,9 +65,5 @@
     "@babel/preset-env": "^7.15.0",
     "@testing-library/dom": "^8.10.1",
     "enzyme": "^3.11.0"
-  },
-  "bugs": {
-    "url": "https://github.com/MiguelParedesJulien/react-top-modal/issues"
-  },
-  "homepage": "https://github.com/MiguelParedesJulien/react-top-modal#readme"
+  }
 }
