@@ -1,4 +1,3 @@
-import { FaTimes } from "react-icons/fa";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
@@ -65,11 +64,11 @@ const Modal = ({
         <div>
           <div className={`modalOverlay ${customClassName ? "modalOverlay-" + customClassName : ""}`} onClick={addCloseOverlay ? closeModal : null}>
             <aside className={`modalWrapper ${customClassName ? "modalWrapper-" + customClassName : ""}`}>
-              <section className={`modal ${customClassName ? "modal-" + customClassName : ""}`}>
+              <section className={`modal ${customClassName ? "modal-" + customClassName : ""}`} onClick={(e) => e.stopPropagation()}>
                 <header className={`modalHeader ${customClassName ? "modalHeader-" + customClassName : ""}`}>
                   {addCloseIcon && (
                     <button aria-label="Close" className={`modalCloseButton ${customClassName ? "modalCloseButton-" + customClassName : ""}`} data-dismiss="modal" onClick={close} type="button">
-                      <FaTimes />
+                      <i className="fas fa-times"></i>
                     </button>
                   )}
                 </header>

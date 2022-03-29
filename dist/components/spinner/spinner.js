@@ -9,7 +9,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _react = _interopRequireDefault(require("react"));
 
-require("./Spinner.css");
+require("./spinner.css");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };

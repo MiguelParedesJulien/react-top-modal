@@ -15,7 +15,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _Spinner = _interopRequireDefault(require("../Spinner/Spinner"));
+var _Spinner = _interopRequireDefault(require("../spinner/spinner"));
 
 function _getRequireWildcardCache(nodeInterop) {
   if (typeof WeakMap !== "function") return null;
